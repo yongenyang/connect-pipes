@@ -1,6 +1,5 @@
-/* styles.css - 簡潔視覺 */
 :root{
-  --cell-size: 88px;
+  --cell-size: 84px;
   --gap: 8px;
   --bg: #f6f8fb;
   --card: #ffffff;
@@ -31,7 +30,7 @@ body{
 
 header{display:flex;flex-direction:column;gap:8px}
 h1{margin:0;font-size:20px}
-.controls-top{display:flex;gap:12px;align-items:center}
+.controls-top{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
 
 button{
   background:var(--accent);
@@ -45,7 +44,7 @@ button{
 button:active{transform:translateY(1px)}
 button:disabled{opacity:.5;cursor:not-allowed}
 
-.msg{margin-left:10px;color:var(--muted);font-size:14px}
+.msg{margin-left:8px;color:var(--muted);font-size:14px}
 
 /* 棋盤 */
 .board{
@@ -54,7 +53,6 @@ button:disabled{opacity:.5;cursor:not-allowed}
   grid-template-rows: repeat(6, var(--cell-size));
   gap: var(--gap);
   margin-top:14px;
-  background:transparent;
 }
 
 /* 單格按鈕 */
@@ -71,9 +69,10 @@ button:disabled{opacity:.5;cursor:not-allowed}
   box-shadow: 0 6px 18px rgba(15,23,42,0.06);
   user-select:none;
   transition: transform .08s;
+  border:1px solid rgba(15,23,42,0.03);
 }
 .cell:active{transform:scale(.98)}
-.cell.locked{cursor:default;opacity:0.95}
+.cell.locked{cursor:default;opacity:0.96}
 
 /* 起點/終點標記圈 */
 .marker{

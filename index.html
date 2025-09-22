@@ -12,17 +12,17 @@
       <h1>接水管遊戲（6×6）</h1>
       <div class="controls-top">
         <button id="newBtn">下一關（重新產生）</button>
-        <label><input type="checkbox" id="autoSolveCheck"> 顯示解法路徑（除非過關）</label>
+        <label><input type="checkbox" id="autoSolveCheck"> 顯示解法路徑提示</label>
         <span id="msg" class="msg">點擊方格旋轉（起點/終點不可旋轉）。</span>
       </div>
     </header>
 
     <main>
-      <div id="board" class="board"></div>
+      <div id="board" class="board" aria-label="遊戲棋盤" role="grid"></div>
     </main>
 
     <footer>
-      <p>說明：起點標有綠色圈，終點標有紅色圈。若起點和終點連通即勝利。</p>
+      <p>說明：綠色 S 為起點（單口）、紅色 E 為終點（單口）。其他每格為二或三口管線。連通起點與終點即可獲勝。</p>
     </footer>
   </div>
 
