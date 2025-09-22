@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>接水管遊戲 - 6×6</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>接水管遊戲（6×6）</h1>
+      <div class="controls-top">
+        <button id="newBtn">下一關（重新產生）</button>
+        <label><input type="checkbox" id="autoSolveCheck"> 顯示解法路徑（除非過關）</label>
+        <span id="msg" class="msg">點擊方格旋轉（起點/終點不可旋轉）。</span>
+      </div>
+    </header>
+
+    <main>
+      <div id="board" class="board"></div>
+    </main>
+
+    <footer>
+      <p>說明：起點標有綠色圈，終點標有紅色圈。若起點和終點連通即勝利。</p>
+    </footer>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

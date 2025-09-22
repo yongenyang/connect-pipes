@@ -1,0 +1,111 @@
+/* styles.css - 簡潔視覺 */
+:root{
+  --cell-size: 88px;
+  --gap: 8px;
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --accent: #2b8cff;
+  --ok: #2ecc71;
+  --danger: #ff6b6b;
+  --muted: #6b7280;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: "Noto Sans TC", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,#eef6ff 0%, var(--bg) 100%);
+  color:#111827;
+  display:flex;
+  justify-content:center;
+  padding:28px;
+}
+
+.app{
+  width: max-content;
+  background:var(--card);
+  padding:18px;
+  border-radius:12px;
+  box-shadow: 0 8px 30px rgba(15,23,42,0.08);
+}
+
+header{display:flex;flex-direction:column;gap:8px}
+h1{margin:0;font-size:20px}
+.controls-top{display:flex;gap:12px;align-items:center}
+
+button{
+  background:var(--accent);
+  color:white;
+  border:none;
+  padding:8px 12px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+}
+button:active{transform:translateY(1px)}
+button:disabled{opacity:.5;cursor:not-allowed}
+
+.msg{margin-left:10px;color:var(--muted);font-size:14px}
+
+/* 棋盤 */
+.board{
+  display:grid;
+  grid-template-columns: repeat(6, var(--cell-size));
+  grid-template-rows: repeat(6, var(--cell-size));
+  gap: var(--gap);
+  margin-top:14px;
+  background:transparent;
+}
+
+/* 單格按鈕 */
+.cell{
+  width:var(--cell-size);
+  height:var(--cell-size);
+  background: linear-gradient(180deg,#fff 0%, #fbfdff 100%);
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  cursor:pointer;
+  box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+  user-select:none;
+  transition: transform .08s;
+}
+.cell:active{transform:scale(.98)}
+.cell.locked{cursor:default;opacity:0.95}
+
+/* 起點/終點標記圈 */
+.marker{
+  position:absolute;
+  width:22px;height:22px;border-radius:999px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;color:white;font-weight:700;
+}
+.marker.start{background:var(--ok);left:8px;top:8px}
+.marker.end{background:var(--danger);right:8px;top:8px}
+
+/* SVG 管線大小 */
+.cell svg{ width:64px;height:64px; transition: transform .25s linear; }
+
+/* 勝利樣式 */
+.win .cell{
+  box-shadow: 0 8px 28px rgba(46,204,113,0.12);
+}
+
+/* 顯示解法路徑的高亮 */
+.path-hint::after{
+  content:"";
+  position:absolute;
+  inset:6px;
+  border-radius:8px;
+  background: linear-gradient(90deg, rgba(43,140,255,0.08), rgba(43,140,255,0.04));
+  pointer-events:none;
+}
+
+/* 響應式微調 */
+@media (max-width:700px){
+  :root{ --cell-size:64px; --gap:6px }
+  .app{ padding:12px }
+  h1{font-size:18px}
+}
